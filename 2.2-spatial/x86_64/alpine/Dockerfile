@@ -13,3 +13,10 @@ RUN wget $ORIENTDB_DOWNLOAD_SPATIAL_URL \
     && echo "$ORIENTDB_DOWNLOAD_SPATIAL_MD5 *orientdb-spatial-$ORIENTDB_VERSION-dist.jar" | md5sum -c - \
     && echo "$ORIENTDB_DOWNLOAD_SPATIAL_SHA1 *orientdb-spatial-$ORIENTDB_VERSION-dist.jar" | sha1sum -c - \
     && mv orientdb-spatial-*-dist.jar /orientdb/lib/
+
+ENV PATH /orientdb/bin:$PATH
+
+VOLUME ["/orientdb/backup", "/orientdb/databases", "/orientdb/config"]
+
+EXPOSE 2424
+EXPOSE 2480
